@@ -1,15 +1,20 @@
-function filterArray(numbers, value) {
-  let finalArr = [];
-  for (const number of numbers)
-    if (number > value) {
-      finalArr.push(number);
-    }
+const profile = {
+  username: "Jacob",
+  playTime: 300,
+  changeUsername(newName) {
+    this.username = newName;
+  },
+  updatePlayTime(hours) {
+    this.playTime = this.playTime + hours;
+  },
+  getInfo() {
+    return `${this.username} has ${this.playTime} active hours!`;
+  },
+};
+console.log(profile.getInfo());
 
-  return finalArr;
-}
+profile.changeUsername("Marco");
+console.log(profile.getInfo());
 
-console.log(filterArray([1, 2, 3, 4, 5], 3));
-console.log(filterArray([1, 2, 3, 4, 5], 4));
-console.log(filterArray([1, 2, 3, 4, 5], 5));
-console.log(filterArray([12, 24, 8, 41, 76], 38));
-console.log(filterArray([12, 24, 8, 41, 76], 20));
+profile.updatePlayTime(20);
+console.log(profile.getInfo());
